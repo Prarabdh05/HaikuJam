@@ -1,0 +1,25 @@
+<% layout('layouts/boilerplate')%>
+    <div class="row">
+        <h1 class="text-center">New Haiku</h1>
+        <div class="col-6 offset-3">
+            <form action="/haikujams" method="post" class="validateforms" novalidate>
+                <div class="mb-3">
+                    <label class="form-label" for="title">Theme</label>
+                    <input class="form-control" type="text" id="title" name="haikujam[title]" required>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="location">Location</label>
+                    <input class="form-control" type="text" id="location" name="haikujam[location]" required>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label" for="description">Jam</label>
+                    <textarea class="form-control" type="text" id="description" name="haikujam[description]"
+                        required></textarea>
+                </div>
+                <div class="mb-3"><button class="btn btn-success">Add Haiku</button></div>
+
+            </form>
+            <div><a href="/haikujams">All Haikus</a></div>
+        </div>
+    </div>

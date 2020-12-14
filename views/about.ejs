@@ -1,0 +1,61 @@
+<% layout('layouts/boilerplate')%>
+    <div class="card text-center">
+        <div class="card-header">
+            HaikuJam
+        </div>
+        <div class="card-body">
+            <h5 class="card-title">What We Do?</h5>
+            <p class="card-text">Brings the people from all around the world together to share their thoughts(in form of
+                haikus) with each
+                other on any topic</p>
+            <!-- Button trigger modal -->
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                Sample Haiku
+            </button>
+
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <span>Theme<h5 class="text-muted">Theme/Topic on which users will pour their
+                                    thoughts</h5></span>
+                        </div>
+                        <div class="modal-body">
+                            <div class="col-6 offset-3">
+                                <div class="card mb-3">
+                                    <div class="card-body">
+                                        <p class="card-text">
+                                            <span>Thoughts/Jam<h5 class="text-muted">Content by different users</h5>
+                                            </span>
+                                        </p>
+                                    </div>
+                                    <ul class="list-group list-group-flush">
+                                        <li class="list-group-item">
+                                            <span>Location<h5 class="text-muted">Location to relate a particular theme
+                                                    with a place</h5> </span>
+                                        </li>
+                                        <li class="list-group-item"><span>Created By <h5 class="text-muted">Author who
+                                                    started that particular haiku/post</h5></span>
+
+                                        </li>
+
+                                    </ul>
+                                    <div class="card-footer">
+                                        HaikuJam
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card-footer text-muted">
+            Helps in mind relaxing :)
+        </div>
+    </div>

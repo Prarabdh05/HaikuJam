@@ -1,0 +1,29 @@
+<% layout('layouts/boilerplate')%>
+
+    <div class="row">
+        <h1 class="text-center">Edit Haiku</h1>
+        <div class="col-6 offset-3">
+            <form action="/haikujams/<%=haiku._id%>/?_method=PUT" method="post" novalidate class="validateforms">
+                <div class="mb-3">
+                    <label class="form-label" for="title">Theme</label>
+                    <input class="form-control" type="text" id="title" value="<%=haiku.title%>" required
+                        name="haikujam[title]">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="location">Location</label>
+                    <input class="form-control" type="text" id="location" value="<%=haiku.location%>" required
+                        name="haikujam[location]">
+                </div>
+
+
+                <div class="mb-3">
+                    <label class="form-label" for="description">Jam</label>
+                    <textarea class="form-control" type="text" id="description" required
+                        name="haikujam[description]"><%=haiku.description%></textarea>
+                </div>
+                <div class="mb-3"><button class="btn btn-info">Update Haiku</button></div>
+
+            </form>
+            <div><a href="/haikujams/<%=haiku._id%>">Back to Haiku</a></div>
+        </div>
+    </div>

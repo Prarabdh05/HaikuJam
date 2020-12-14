@@ -1,0 +1,68 @@
+<% layout('layouts/boilerplate')%>
+    <div class="row">
+        <div class="col-6 ">
+            <div class="card mb-3">
+                <div class="card-body">
+                    <h5 class="card-title">
+                        <%=haiku.title%>
+                    </h5>
+                    <p class="card-text">
+                        <%=haiku.description%>
+                    </p>
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item text-muted">
+                        <%=haiku.location%>
+                    </li>
+                    <li class="list-group-item"> Created By:
+                        <% if(haiku.author==null) {%>
+                            HaikuJam Bot
+                            <% } else{%>
+                                <%=haiku.author.username%>
+                                    <% } %>
+                    </li>
+
+                </ul>
+                <div class="card-body">
+                    <a class="card-link btn btn-info" href="/haikujams/<%=haiku._id%>/edit">Edit</a>
+                    <% if(currentUser && haiku.author!=null && haiku.author.equals(currentUser._id)) {%>
+                        <form class="d-inline" action="/haikujams/<%=haiku._id%>/?_method=DELETE" method="post">
+                            <button class="btn btn-danger">Delete</button>
+                        </form>
+                        <% } %>
+                </div>
+                <div class="card-footer text-center">
+                    HaikuJam
+                </div>
+            </div>
+        </div>
+        <div class="col-6">
+            <h2>Leave a Review for this Haiku</h2>
+            <form action="/haikujams/<%=haiku._id%>/reviews" class="mb-3 validateforms" method="POST" novalidate>
+                <div class="mb-3">
+                    <label class="form-label" for="rating">Rating</label>
+                    <input type="range" class="form-range" min="1" max="5" name="review[rating]">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="body">Review</label>
+                    <textarea class="form-control" name="review[body]" id="body" cols="30" rows="3" required></textarea>
+                </div>
+                <button class="btn btn-success">Submit</button>
+            </form>
+            <% for(let review of haiku.reviews) {%>
+                <div class="card mb-3">
+                    <div class=" card-body">
+                        <h5 class="card-title">
+                            Rating: <%=review.rating%>
+                        </h5>
+                        <p class="card-title">Review: <%=review.body%>
+                        </p>
+                        <form action="/haikujams/<%=haiku._id%>/reviews/<%=review._id%>?_method=DELETE" method="post">
+                            <button class="btn btn-sm btn-danger">Delete</button>
+                        </form>
+                    </div>
+                </div>
+
+                <% } %>
+        </div>
+    </div>

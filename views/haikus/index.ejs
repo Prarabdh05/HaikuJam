@@ -1,0 +1,29 @@
+<% layout('layouts/boilerplate')%>
+    <div class="mb-3 py-3" style="text-align: center; background-color: rgb(59, 78, 95);">
+        <h1>All Haikus</h1>
+        <div><a href="/haikujams/new">Add a Haiku</a></div>
+    </div>
+    <%haikus.forEach(haiku=> {%>
+        <div class="card mb-3">
+            <div class="row">
+
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <h5 class="card-title">
+                            <%=haiku.title %>
+                        </h5>
+                        <p class="card-text">
+                            <%=haiku.description %>
+                        </p>
+                        <p class="card-text">
+                            <small class="text-muted">
+                                <%=haiku.location %>
+                            </small>
+                        </p>
+                        <a href="/haikujams/<%=haiku._id%>" class="btn btn-primary">View <%=haiku.title %>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <% }) %>
